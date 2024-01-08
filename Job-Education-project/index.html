@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Job and education bulletin boards</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div>
+      <nav>
+        <h1 class="title">Job and Education</h1>
+        <form action="#">
+          <label for="admin">Admin</label>
+          <input
+            type="text"
+            name="admin"
+            id="adminName"
+            placeholder="admin01"
+          />
+          <label for="password">Password</label>
+          <input
+            type="password"
+            name="password"
+            id="adminPassword"
+            placeholder="1111"
+          />
+          <button class="btn-login" id="btn-login">Log in</button>
+        </form>
+      </nav>
+    </div>
+    <!--TO SHOW ONLY TO ADMINS-->
+    <div class="ads-box">
+      <form action="#">
+        <label for="offer">Select type</label>
+        <select name="offer" id="offer">
+          <option selected value="select" id="sel">---Select---</option>
+          <option value="job">Job</option>
+          <option value="education">Education</option>
+        </select>
+      </form>
+
+      <!--JOBS FIELD BOX-->
+      <div class="job-info">
+        <form action="#">
+          <label for="job-title" id="offert-type">Job</label>
+          <input type="text" name="job-title" id="job-title" />
+          <label for="job-location">Location</label>
+          <input type="text" name="job-location" id="job-location" />
+          <label for="description-job">Description:</label>
+          <textarea
+            name="description-job"
+            id="description-job"
+            cols="30"
+            rows="10"
+          ></textarea>
+          <label for="ral" id="specific">RAL</label>
+          <input type="text" name="ral" id="ral" placeholder="€/year" />
+          <!--To show is course is selected-->
+          <label class="hidden" for="ral">Duration</label>
+          <input
+            class="hidden"
+            type="text"
+            name="duration"
+            id="duration"
+            placeholder="duration in hours"
+          />
+          <!--FINISH DURATION PART-->
+        </form>
+        <div class="centered-btn">
+          <button class="submit-btn">Submit</button>
+        </div>
+      </div>
+
+      <!--COURSES FIELD BOX-->
+      <!--
+      <div class="course-info">
+        <form action="#">
+          <label for="course-title">Course name</label>
+          <input type="text" name="course-title" id="course-title" />
+          <label for="course-location">Location</label>
+          <input type="text" name="course-location" id="course-location" />
+          <label for="description-course">Description:</label>
+          <textarea
+            name="description-job"
+            id="description-job"
+            cols="30"
+            rows="10"
+          ></textarea>
+          <label for="ral">Duration</label>
+          <input
+            type="text"
+            name="duration"
+            id="duration"
+            placeholder="duration in hours"
+          />
+        </form>
+        <div class="centered-btn">
+          <button class="submit-btn">Submit</button>
+        </div>
+      </div>
+    --></div>
+    <!--LIST OF ADS-->
+    <div class="board">
+      <h2>Our offerts</h2>
+      <ul class="bulletin">
+        <li class="offer-job" id="01">
+          <button class="exit-btn">X</button>
+          <h3 class="offer-title">Web developer</h3>
+          <p class="description">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos cumque
+            magnam numquam quis nostrum sit sed voluptas cupiditate! Aut quo
+            assumenda quae nulla a eius debitis sunt incidunt nemo qui?. Lorem
+            ipsum dolor sit amet, consectetur adipisicing elit. Debitis quaerat
+            aut quo numquam reiciendis molestias, minima facere ad libero enim.
+            Repellendus, ipsa? Sequi est voluptates minima. Quos harum pariatur
+            excepturi!
+          </p>
+          <div class="additional-info">
+            <p class="location info-style">Roma</p>
+            <p class="ral-job info-style">40.000€</p>
+          </div>
+
+          <div class="centered-btn">
+            <button class="apply-btn">Apply</button>
+          </div>
+        </li>
+
+        <!--Couse offer-->
+        <li class="offer-course" id="02">
+          <button class="exit-btn">X</button>
+          <h3 class="offer-title">Javascript</h3>
+          <p class="description">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos cumque
+            magnam numquam quis nostrum sit sed voluptas cupiditate! Aut quo
+            assumenda quae nulla a eius debitis sunt incidunt nemo qui?.Debitis
+            quaerat aut quo numquam reiciendis molestias, minima facere ad
+            libero enim. Repellendus, ipsa? Sequi est voluptates minima. Quos
+            harum pariatur excepturi!
+          </p>
+          <div class="additional-info">
+            <p class="location info-style">online</p>
+            <p class="ral-job info-style">160 hours</p>
+          </div>
+
+          <div class="centered-btn">
+            <button class="apply-btn">Apply</button>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
