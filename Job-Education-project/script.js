@@ -59,6 +59,7 @@ loginBtn.addEventListener("click", function (e) {
       //change button login/logout
       admin.value = "";
       password.value = "";
+      hideRemoveBtn();
     } else {
       loginBtn.innerHTML = "LogOut";
     }
@@ -106,6 +107,7 @@ submitBtn.addEventListener("click", function () {
   emptyAll();
   console.log(allElements);
   delateLi();
+  setLocalStorage(); //call for local storage
 });
 
 //FUNCTION
@@ -135,10 +137,10 @@ let emptyAll = () => {
 };
 
 //print JOB/course function
-//PROBLEMA UNDEFINED VALORE RAL ORE
+
 let printJob = function (el, type) {
   let html = `<li class="offer-${type}" id=${el.id}>
-  <button class="exit-btn">X</button>
+  <button class="exit-btn hidden">X</button>
   <h3 class="offer-title">${el.type}</h3>
   <p class="description">${el.description}</p>
   <div class="additional-info">
@@ -194,16 +196,20 @@ let delateArrayEl = function (el) {
   for (let j = 0; j < allElements.length; j++) {
     if (el.parentNode.id == allElements[j].id) {
       allElements.splice(j, 1);
-      console.log(allElements);
+      setLocalStorage(); //local storage dopo cancellazione
     }
   }
 };
+
+window.addEventListener("load", function () {
+  setLocalStorage();
+  getLocalStrg();
+});
 
 //Local storage
 let setLocalStorage = function () {
   localStorage.setItem("JobAndEducation", JSON.stringify(allElements));
 };
-setLocalStorage();
 
 let getLocalStrg = function () {
   let data = JSON.parse(localStorage.getItem("JobAndEducation"));
