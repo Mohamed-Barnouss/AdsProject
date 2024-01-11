@@ -40,13 +40,23 @@
         </select>
       </form>
 
-      <!--JOBS FIELD BOX-->
+      <!--FIELD BOX-->
       <div class="job-info">
         <form action="#">
-          <label for="job-title" id="offert-type">Job</label>
-          <input type="text" name="job-title" id="job-title" />
-          <label for="job-location">Location</label>
-          <input type="text" name="job-location" id="job-location" />
+          <label for="job-title" id="offert-type">Job:</label>
+          <input
+            type="text"
+            name="job-title"
+            class="input-center"
+            id="job-title"
+          />
+          <label for="job-location">Location:</label>
+          <input
+            type="text"
+            name="job-location"
+            class="input-center"
+            id="job-location"
+          />
           <label for="description-job">Description:</label>
           <textarea
             name="description-job"
@@ -54,10 +64,10 @@
             cols="30"
             rows="10"
           ></textarea>
-          <label for="ral" id="specific">RAL</label>
-          <input type="text" name="ral" id="ral" placeholder="€/year" />
+          <label for="ral" id="specific">RAL:</label>
+          <input type="text" name="ral" id="ral" placeholder="ral in €" />
           <!--To show is course is selected-->
-          <label class="hidden" for="ral">Duration</label>
+          <label class="hidden" for="ral">Duration:</label>
           <input
             class="hidden"
             type="text"
@@ -65,41 +75,14 @@
             id="duration"
             placeholder="duration in hours"
           />
+
           <!--FINISH DURATION PART-->
         </form>
         <div class="centered-btn">
           <button class="submit-btn">Submit</button>
         </div>
       </div>
-
-      <!--COURSES FIELD BOX-->
-      <!--
-      <div class="course-info">
-        <form action="#">
-          <label for="course-title">Course name</label>
-          <input type="text" name="course-title" id="course-title" />
-          <label for="course-location">Location</label>
-          <input type="text" name="course-location" id="course-location" />
-          <label for="description-course">Description:</label>
-          <textarea
-            name="description-job"
-            id="description-job"
-            cols="30"
-            rows="10"
-          ></textarea>
-          <label for="ral">Duration</label>
-          <input
-            type="text"
-            name="duration"
-            id="duration"
-            placeholder="duration in hours"
-          />
-        </form>
-        <div class="centered-btn">
-          <button class="submit-btn">Submit</button>
-        </div>
-      </div>
-    --></div>
+    </div>
     <!--LIST OF ADS-->
     <div class="board">
       <h2>Our offerts</h2>
@@ -118,7 +101,7 @@
           </p>
           <div class="additional-info">
             <p class="location info-style">Roma</p>
-            <p class="ral-job info-style">40.000€</p>
+            <p class="btn-job info-style">40.000€</p>
           </div>
 
           <div class="centered-btn">
@@ -140,7 +123,7 @@
           </p>
           <div class="additional-info">
             <p class="location info-style">online</p>
-            <p class="ral-job info-style">160 hours</p>
+            <p class="btn-course info-style">160 hours</p>
           </div>
 
           <div class="centered-btn">

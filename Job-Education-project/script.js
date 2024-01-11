@@ -35,14 +35,14 @@ class Offert {
 class Job extends Offert {
   constructor(type, location, description, id, ral) {
     super(type, location, description, id);
-    this.value = ral;
+    this.ral = ral;
   }
 }
 
 class Education extends Offert {
   constructor(type, location, description, id, hours) {
     super(type, location, description, id);
-    this.value = hours;
+    this.hours = hours;
   }
 }
 
@@ -139,13 +139,15 @@ let emptyAll = () => {
 //print JOB/course function
 
 let printJob = function (el, type) {
+  let value = el.ral ? el.ral : el.hours;
+  let simbol = el.ral ? "€" : "hours";
   let html = `<li class="offer-${type}" id=${el.id}>
-  <button class="exit-btn hidden">X</button>
+  <button class="exit-btn">X</button>
   <h3 class="offer-title">${el.type}</h3>
   <p class="description">${el.description}</p>
   <div class="additional-info">
     <p class="location info-style">${el.location}</p>
-    <p class="ral-job info-style">${el.value}</p>
+    <p class="btn-${type} info-style">${value} ${simbol}</p>
   </div>
 
   <div class="centered-btn">
@@ -174,16 +176,6 @@ let delateLi = function () {
   for (let i = 0; i < closeButtons.length; i++) {
     closeButtons[i].addEventListener("click", function () {
       console.log("click funziona");
-      //delate from allElement array
-      /*
-      for (let j = 0; j < allElements.length; j++) {
-        if (this.parentNode.id == allElements[j].id) {
-          allElements.splice(j, 1);
-
-          console.log(allElements);
-        }
-      }
-      */
       delateArrayEl(this);
       this.parentNode.remove();
     });
@@ -219,15 +211,6 @@ let getLocalStrg = function () {
   if (!data) return;
 
   allElements = data;
-
-  /*
-  allElements.forEach((el) => {
-    console.log("sotto ho element");
-    console.log(...el);
-    if (el.ral) {
-      console.log("E un lavoro");
-    }
-  });*/
 
   for (let i = 0; i < allElements.length; i++) {
     console.log("allElements sotto:");
