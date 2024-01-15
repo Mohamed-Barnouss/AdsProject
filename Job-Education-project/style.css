@@ -180,3 +180,16 @@ h3 {
 .hidden {
   display: none;
 }
+
+.filters {
+  margin-left: 1rem;
+}
+
+.filter-btn {
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+}
+
+.checked {
+  background-color: #517cd9;
+}

@@ -138,11 +138,11 @@ let emptyAll = () => {
 
 //print JOB/course function
 
-let printJob = function (el, type) {
+let printJob = function (el, type, hide) {
   let value = el.ral ? el.ral : el.hours;
   let simbol = el.ral ? "€" : "hours";
   let html = `<li class="offer-${type}" id=${el.id}>
-  <button class="exit-btn">X</button>
+  <button class="exit-btn ${hide}">X</button>
   <h3 class="offer-title">${el.type}</h3>
   <p class="description">${el.description}</p>
   <div class="additional-info">
@@ -176,6 +176,16 @@ let delateLi = function () {
   for (let i = 0; i < closeButtons.length; i++) {
     closeButtons[i].addEventListener("click", function () {
       console.log("click funziona");
+      //delate from allElement array
+      /*
+      for (let j = 0; j < allElements.length; j++) {
+        if (this.parentNode.id == allElements[j].id) {
+          allElements.splice(j, 1);
+
+          console.log(allElements);
+        }
+      }
+      */
       delateArrayEl(this);
       this.parentNode.remove();
     });
@@ -195,7 +205,6 @@ let delateArrayEl = function (el) {
 
 window.addEventListener("load", function () {
   setLocalStorage();
-  getLocalStrg();
 });
 
 //Local storage
@@ -212,15 +221,75 @@ let getLocalStrg = function () {
 
   allElements = data;
 
+  /*
+  allElements.forEach((el) => {
+    console.log("sotto ho element");
+    console.log(...el);
+    if (el.ral) {
+      console.log("E un lavoro");
+    }
+  });*/
+
   for (let i = 0; i < allElements.length; i++) {
     console.log("allElements sotto:");
     console.log(allElements[i]);
     if (allElements[i].ral) {
-      printJob(allElements[i], "job");
-    } else {
-      printJob(allElements[i], "course");
+      printJob(allElements[i], "job", "hidden");
+    }
+    if (allElements[i].hours) {
+      printJob(allElements[i], "course", "hidden");
     }
   }
 };
 
 getLocalStrg();
+
+/*****FILTER*******/
+let lists = document.getElementsByTagName("li");
+let filterBtn = document.getElementsByClassName("filter-btn");
+console.log(lists);
+
+for (let i = 0; i < filterBtn.length; i++) {
+  filterBtn[i].addEventListener("click", function () {
+    for (let j = 0; j < filterBtn.length; j++) {
+      filterBtn[j].classList.remove("checked");
+    }
+    filterBtn[i].classList.add("checked");
+    if (filterBtn[i].value == "all") {
+      filterAll();
+    }
+
+    if (filterBtn[i].value == "job") {
+      filterAll();
+      filterJob();
+    }
+    if (filterBtn[i].value == "cours") {
+      filterAll();
+      filterCourses();
+    }
+  });
+}
+
+/*filters function*/
+let filterAll = function () {
+  for (let i = 0; i < lists.length; i++) {
+    lists[i].classList.remove("hidden");
+  }
+};
+/*show job*/
+let filterJob = function () {
+  for (let i = 0; i < lists.length; i++) {
+    if (lists[i].classList.contains("offer-course")) {
+      lists[i].classList.add("hidden");
+    }
+  }
+};
+
+/*show courses*/
+let filterCourses = function () {
+  for (let i = 0; i < lists.length; i++) {
+    if (lists[i].classList.contains("offer-job")) {
+      lists[i].classList.add("hidden");
+    }
+  }
+};
